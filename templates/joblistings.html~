@@ -1,0 +1,32 @@
+<!-- Emily Van Laarhoven and Marissa Okoli
+listings.html template for OddJobs project
+Last modified: 5/10/2017
+-->
+{% extends "base.html" %}
+{% block main_content %}
+    <h1>Available Job Listings</h1>
+
+    <form method="POST" action="/setcookie">
+      <p> Search jobs in your zipcode: </p>
+      <p><input type="text" name="zip" /></p>
+      <p><input type="submit" value="Search" /></p>
+    </form>
+    <p>Zip code is {{cookie}} </p>
+
+    <div>
+    	<ul>
+    	{% for job in jobs %}
+    		<li>{{ job }}</li>
+    		<form method="post" action="">
+		  <p><label>User ID: <input required type="number" name="userId"></label></p>
+  		  {% set splitJob = job.split(' ') %}
+  		  <p style="display: none"><input type="number" name="jid" value="{{ splitJob[0] }}"></p>
+  		  <p><input type="submit" name="btn" value="Submit">  Enter your user id</p>
+  		  <p><input type="submit" name="btn" value="Delete">  Enter uid = 0</p>
+		  <p>When logins implemented, only allow user who posted job to delete</p>
+  		</form>
+    		</li>
+    	{% endfor %}
+    	</ul>
+    </div>
+{% endblock %}

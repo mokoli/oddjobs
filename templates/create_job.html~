@@ -1,0 +1,33 @@
+<!doctype html>
+
+<!-- Emily Van Laarhoven
+create_job.html
+Last updated: 4/19/2017
+form to create job posting
+-->
+
+<html>
+<head></head>
+
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<body>
+<h1> Post a Job </h1>
+<form id="create_job" method="POST" action="">
+  <p><label>Job Title: <input required name="title"></label></p>
+  <p><label>Description: <input name="description"></label></p>
+  <p><label>Location: <input required name="location"></label></p>
+  <p><label>Date: <input required name="dt" type="date"></label></p>
+  <p><label>Compensation offered: (enter integer dollars) <input name="pay" type="number"></label></p>
+  <p> The job poster user id will be collected via logins eventually </p>
+  <p><label>Your user id: <input name="poster"></label></p>
+  <p><label>Skills required for job: <input name="skills_required"></label></p>
+  <p><input type="submit"></p>
+</form>
+
+{% endblock %}
+
+</body>
+</html>

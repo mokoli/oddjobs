@@ -1,0 +1,39 @@
+<!doctype html>
+
+<!-- Emily Van Laarhoven
+review.html
+Last updated: 5/3/2017
+form to leave review of employee or employer
+-->
+
+<html>
+<head></head>
+
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<body>
+<h1> Leave a Review </h1>
+<form id="review" method="POST" action="">
+  <p><label>Are you leaving a review as a: </label></p>
+       <input type="radio" name="who" value="employer">"I'm an employer reviewing my employee" <br>
+       <input type="radio" name="who" value="employee">"I'm an employee reviewing my employer" <br>
+  <p><label>Job Id (from job listing, should get to review from link on job listing?): <input required name="jid" type="number"></label></p>
+  <p><label> Your id (will get from login) : <input required name="employee_id" type="number"></label></p>
+  <p><label> Review for (uid, will link from account page) : <input required name="employer_id" type="number"></label></p>
+  <p><label> Rate out of 5 stars: <select name="rating"></label></p>
+       <option value="5" selected>5</option>
+       <option value="4">4</option>
+       <option value="3">3</option>
+       <option value="2">2</option>
+       <option value="1">1</option>
+       </select>       
+  <p><label>Additional comments: <input name="review_comments"></label></p>
+  <p><input type="submit"></p>
+</form>
+
+{% endblock %}
+
+</body>
+</html>

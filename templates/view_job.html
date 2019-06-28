@@ -1,0 +1,25 @@
+<!-- Marissa Okoli
+view_job.html template for OddJobs project
+Last modified: 5/12/2017
+-->
+{% extends "base.html" %}
+{% block main_content %}
+<!-- Structure of deetsList: {title},{description},{dt},{pay},{poster},{skills_required},{available} -->
+    <section class="fm">
+    	<form method="POST" action="">
+    		<p class="center"><strong>Poster name:</strong> {{ deetsList[4] }}</p>
+    		<p class="center"><strong>Date:</strong> {{ deetsList[2] }}</p>
+    		<p class="center"><strong>Pay:</strong> {{ deetsList[3] }}</p>
+    		<p class="center"><strong>Description:</strong> {{ deetsList[1] }}</p>
+    		<p class="center"><strong>Skills required:</strong> {{ deetsList[5] }}</p>
+    		<p class="center"><strong>Available:</strong> {{ deetsList[6] }}</p>
+    	<!-- People know location based on zip code, can get finer location once email 
+    	poster -->
+    		{% if is_owner %}
+    			<p class="center"><input type="submit" name="btn" value="Delete"></p>
+  		  	{% elif not (deetsList[6]=="0") %}
+  		  		<p class="center"><input type="submit" name="btn" value="Accept"></p>
+  		  	{% endif %}
+  		</form>		
+    </section>
+{% endblock %}

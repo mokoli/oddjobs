@@ -1,0 +1,15 @@
+<!-- Marissa Okoli
+login.html template for OddJobs project
+Last modified: 5/12/2017
+-->
+{% extends "base.html" %}
+{% block main_content %}
+	<section class="fm">
+    	<form method="POST" action="">
+    		<p class="center">Please enter your email and password: </p>
+      		<p><label>Email: <input type="email" name="user" required /></label></p>
+      		<p><label>Password: <input type="password" name="pwd" required /></label></p>
+      		<p><input type="submit" value="Log in"></p>
+    	</form>
+	</section>
+{% endblock %}

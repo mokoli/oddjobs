@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block main_content %}
+{% if not all_accounts == {} %}
+	<section class="fm">
+		<form id="search_account" method="post" action="">
+			<p class="center">Visit a profile and leave a rating or review!</p>
+  			<p><label>Users you've met: <select name="uid"></label></p>
+  			{% for uid in all_accounts %}
+       			<option value="{{uid}}">{{all_accounts[uid]}}</option>
+  			{% endfor %}
+  			</select>
+  			<p><input type="submit" name="search" value="View Profile">
+		</form>
+	</section>
+{% endif %}
+{% endblock %}

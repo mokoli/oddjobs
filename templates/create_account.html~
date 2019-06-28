@@ -1,0 +1,37 @@
+<!doctype html>
+
+<!-- Emily Van Laarhoven
+create_account.html
+Last updated: 4/19/2017
+form to create user account
+extends base.html
+-->
+
+<html>
+<head></head>
+
+<body>
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h1> Create Account </h1>
+<form id="create_account" method="POST" action="">
+  <p><label>Name: <input required name="nm"></label></p>
+  <p><label>Street address: <input required name="street"></label></p>
+  <p><label>Town: <input required name="town"></label></p>
+  <p><label>State: <input required name="st"></label></p>
+  <p> Note: hold down shift or command to select multiple skills from drop-down list </p>
+  <p><label>Skills: <select name="skills" multiple></label></p>
+      <option value="" selected></option>
+      <option value="yardwork">yardwork</option>
+      <option value="carpentry">carpentry</option>
+      <option value="tutoring">tutoring</option>
+      <option value="childcare">childcare</option>
+      </select>
+  <p><input type="submit"></p>
+</form>
+
+{% endblock %}
+</body>
+</html>

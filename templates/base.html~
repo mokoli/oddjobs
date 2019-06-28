@@ -1,0 +1,43 @@
+<!doctype html>
+
+<!-- Emily Van Laarhoven and Marissa Okoli
+base.html template for OddJobs project
+Last modified: 5/4/2017
+-->
+
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name=author content="Emily Van Laarhoven and Marissa Okoli">
+    <title>{{ page_title }}</title>
+    {% block head_stuff %} {% endblock %}
+</head>
+<body>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div id="messages">
+        {% for msg in messages %}
+            <p>{{msg}}</p>
+        {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<ul>
+  <li> <a href = "/">Home </a> </li>
+  <li> <a href = "{{ url_for('create_account') }}">Create Account </a> </li>
+  <li> <a href = "{{ url_for('create_job') }}">Post New Job </a> </li>
+  <li> <a href = "{{ url_for('view_jobs') }}">View Job Listing</a> </li>
+  <li> <a href = "{{ url_for('search_account') }}">Search User Profiles</a></li>
+</ul>            
+
+{% block main_content %}
+<h1>OddJobs</h1>
+
+<p> This is the OddJobs Homepage </p>
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h1> Search for a user profile </h1>
+
+<form id="search_account" method="post" action="/search_account/">
+  <p><label> All user accounts: <select name="menu-uid"></label></p>
+  {% for uid in all_accounts %}
+       <option value="{{uid}}">{{all_accounts[uid]}}</option>
+  {% endfor %}
+  </select>
+  <p><input type="submit" name="search" value="Choose one">
+</form>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+<!doctype html>
+
+<!-- Emily Van Laarhoven and Marissa Okoli
+base.html template for OddJobs project
+Last modified: 5/12/2017
+-->
+
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name=author content="Emily Van Laarhoven and Marissa Okoli">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Limelight|Playfair+Display|Source+Sans+Pro:300,600" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'oddjobs.css') }}" />
+</head>
+<body>
+	<header>
+		<h1 class="logo"><a href = "{{ url_for('home') }}">OddJobs</a></h1>
+		<nav>
+		{% if is_logged %}
+			<a href = "{{ url_for('home') }}">Home</a>
+  			<a href = "{{ url_for('create_job') }}">Post New Job</a>
+  			<a href = "{{ url_for('view_jobs') }}">View Job Listing</a>
+  			<a href = "{{ url_for('search_account') }}">Connections</a>
+  			<a href= "{{ url_for('view_account', uid=uid) }}">Profile</a>
+  			<a class="btn" href="{{ url_for('logout') }}"><span>Logout</span></a>        
+		{% else %}
+			<a class="btn" href="{{ url_for('create_account') }}"><span>Sign Up</span></a>
+			<a class="btn" href="{{ url_for('login') }}"><span>Login</span></a>
+		{% endif %}
+		</nav>
+	</header>
+	{% with messages = get_flashed_messages() %}
+    	{% if messages %}
+        	<div id="messages">
+        	{% for msg in messages %}
+            	<p>{{msg}}</p>
+        	{% endfor %}
+        	</div>
+    	{% endif %}
+	{% endwith %} 
+	<section class="hp">
+		<div class="intro">
+			<h2>Make Your Time Worth It</h2>
+			<p>Need trustworthy, short-term help? Looking for some quick pay? 
+			Use our online job board to find a job or get your tasks done now.</p>
+		</div>
+	</section>
+	<section class="splain flex-container">
+		<div class="card">
+			<h4>Step 1</h4>
+			<p><strong>Create Account.</strong> Whether you are a college community 
+			member looking for help, or a college student looking for quick part-time work, 
+			signing up for OddJobs is for you. College students can get help to!</p>
+		</div>
+		<div class="card">
+			<h4>Step 2</h4>
+			<p><strong>Post A Job.</strong> Post a job to our job board and watch it be 
+			accepted by a worker in minutes! You'll be well on your way to getting that 
+			task done!</p>
+			<h5 class="or">OR</h5>
+			<p><strong>View Our Job Board.</strong> Take a look at our job board. When 
+			you see a job you like hit accept and nab that fast, easy money!</p>
+		</div>
+		<div class="card">
+			<h4>Step 3</h4>
+			<p><strong>Coordinate.</strong> Email back and forth with location details 
+			about the job, get the job completed, and transact the compensation. Easy!
+			{% if not is_logged %}
+				<a class="btn" href="{{ url_for('create_account') }}"><span>Sign Up</span></a>
+			{% endif %}
+		</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+
+<!-- Emily Van Laarhoven modified by Marissa Okoli
+review.html
+Last updated: 5/13/2017
+form to leave review of employee or employer
+-->
+{% extends "base.html" %}
+{% block main_content %}
+<section class="fm">
+	<form id="review" method="POST" action="">
+  		<p><label>For which Job?: <select required name="jid"></label></p>
+  		{% for job in jobs_worked %}
+  			<option value="{{ job['jid'] }}">{{ job['title'] }} {{ job['dt'] }}</option>
+  		{% endfor %}
+  		</select>
+  		<p><label> Rate out of 5 stars: <select name="rating"></label></p>
+       		<option value="5" selected>5</option>
+       		<option value="4">4</option>
+       		<option value="3">3</option>
+       		<option value="2">2</option>
+       		<option value="1">1</option>
+       </select>       
+  		<p><label>Additional comments: <input type="textarea" name="review_comments"></label></p>
+  		<p><input type="submit"></p>
+	</form>
+</section>
+{% endblock %}

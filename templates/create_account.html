@@ -1,0 +1,105 @@
+<!doctype html>
+
+<!-- Emily Van Laarhoven and Marissa Okoli
+base.html template for OddJobs project
+Last modified: 5/13/2017
+-->
+
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name=author content="Emily Van Laarhoven and Marissa Okoli">
+    <title>Create Account</title>
+    <link href="https://fonts.googleapis.com/css?family=Limelight|Playfair+Display|Source+Sans+Pro:300,600" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'oddjobs.css') }}" />
+</head>
+<body>
+	<header>
+		<h1 class="logo"><a href = "{{ url_for('home') }}">OddJobs</a></h1>
+	</header>
+	{% with messages = get_flashed_messages() %}
+    	{% if messages %}
+        	<div id="messages">
+        	{% for msg in messages %}
+            	<p>{{msg}}</p>
+        	{% endfor %}
+        	</div>
+    	{% endif %}
+	{% endwith %}
+	<section class="banner">
+		<h2>Create Account</h2>
+	</section> 
+	<section class="fm">
+		<form id="create_account" method="POST" action="" enctype = "multipart/form-data">
+  			<p><label>Name: <input required name="nm"></label></p>
+  			<p><label>Email: <input type="email" name="email" required /></label></p>
+  			<p><label>Street address: <input required name="street"></label></p>
+  			<p><label>Town: <input required name="town"></label></p>
+  			<p><label>State: <select required name="st">
+                          <option value="AL">AL</option>
+                          <option value="AK">AK</option>
+                          <option value="AZ">AZ</option>
+                          <option value="AR">AR</option>
+                          <option value="CA">CA</option>
+                          <option value="CO">CO</option>
+                          <option value="CT">CT</option>
+                          <option value="DC">DC</option>
+                          <option value="DE">DE</option>
+                          <option value="FL">FL</option>
+                          <option value="GA">GA</option>
+                          <option value="HI">HI</option>
+                          <option value="ID">ID</option>
+                          <option value="IL">IL</option>
+                          <option value="IN">IN</option>
+                          <option value="IA">IA</option>
+                          <option value="KS">KS</option>
+                          <option value="KY">KY</option>
+                          <option value="LA">LA</option>
+                          <option value="MA">MA</option>
+                          <option value="MD">MD</option>
+                          <option value="ME">ME</option>
+                          <option value="MI">MI</option>
+                          <option value="MN">MN</option>
+                          <option value="MS">MS</option>
+                          <option value="MO">MO</option>
+                          <option value="MT">MT</option>
+                          <option value="NC">NC</option>
+                          <option value="ND">ND</option>
+                          <option value="NE">NE</option>
+                          <option value="NH">NH</option>
+                          <option value="NJ">NJ</option>
+                          <option value="NM">NM</option>
+                          <option value="NV">NV</option>
+                          <option value="NY">NY</option>
+                          <option value="OH">OH</option>
+                          <option value="OK">OK</option>
+                          <option value="OR">OR</option>
+                          <option value="PA">PA</option>
+                          <option value="RI">RI</option>
+                          <option value="SC">SC</option>
+                          <option value="SD">SD</option>
+                          <option value="TN">TN</option>
+                          <option value="TX">TX</option>
+                          <option value="UT">UT</option>
+                          <option value="VT">VT</option>
+                          <option value="VA">VA</option>
+                          <option value="WA">WA</option>
+                          <option value="WI">WI</option>
+                          <option value="WV">WV</option>
+                          <option value="WY">WY</option>
+                        </select></label></p>
+  			<p> Note: hold down shift or command to select multiple skills from drop-down list </p>
+  			<p><label>Skills: <select name="skills" multiple></label></p>
+      			<option value="" selected></option>
+      			<option value="yardwork">yardwork</option>
+      			<option value="carpentry">carpentry</option>
+      			<option value="tutoring">tutoring</option>
+      			<option value="childcare">childcare</option>
+      		</select>
+  			<p><label>Password: <input type="password" name="pwd" required /></label></p>
+  			<p><label>Upload Picture (max 1MB)<input type = "file" name = "file" /></label></p>
+  			<p><input type="submit"></p>
+		</form>
+	</section>
+</body>
+</html>

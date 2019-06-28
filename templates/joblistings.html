@@ -1,0 +1,29 @@
+<!-- Emily Van Laarhoven and Marissa Okoli
+listings.html template for OddJobs project
+Last modified: 5/12/2017
+-->
+{% extends "base.html" %}
+{% block main_content %}
+	<section class="fm">
+    	<form method="POST" action="">
+      		<p class="center">Search jobs in your zipcode: </p>
+      		<p><label>Zip Code: <input type="number" name="zipcode" value="00000" required /></label></p>
+      		<p><input type="submit" value="Search" /></p>
+    	</form>
+    </section>
+    <div>
+    	<ul class="jl">
+    	<!-- format of jobs {jid}(~/~){title}(~/~){location}(~/~){dt}(~/~)${pay} -->
+    	{% for job in jobs %}
+    	 	<!--Jobs is a list of all the jobs, Job are space separated attributes of a Job,
+  		  	split on the spaces to transform string Job into a list of attributes for that job
+  		  	so can get jid as first value of list-->
+  		  	{% set splitJob = job.split('(~/~)') %}
+  		  	{% if splitJob[2] == location %}
+    		<a href="/job/{{ splitJob[0] }}"><li><span class="le">{{ splitJob[4] }}</span> 
+    		<span>{{ splitJob[1] }}</span> <span class="ri">{{ splitJob[3] }}</span></li></a>
+    		{% endif %}
+    	{% endfor %}
+    	</ul>
+    </div>
+{% endblock %}

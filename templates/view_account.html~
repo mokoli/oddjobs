@@ -1,0 +1,32 @@
+<!-- Emily Van Laarhoven
+view_account.html extends base.html 
+displays all account info for OddJobs users
+links to review form
+last update: 5/10/17
+-->
+
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h1> Profile </h1>
+
+<p> Uid (for testing only): {{ acct_info['uid'] }}
+
+<p> Name: {{ acct_info['name'] }}
+
+<p> Rating: {{ acct_info['rating'] }}
+
+<p> Street: {{ acct_info['street'] }}
+
+<p> Town: {{ acct_info['town'] }}
+
+<p> State: {{ acct_info['state'] }}
+
+<p> Skills: {{ acct_info['skills'] }}
+
+<p> note: Marissa figure out profile pictures(?)  
+
+<p><a href='/review/'>Leave a review</a></p>
+
+{% endblock %}

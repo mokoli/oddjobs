@@ -1,0 +1,29 @@
+<!doctype html>
+
+<!-- Emily Van Laarhoven modified by Mariss Okoli 5/13/17
+create_job.html
+Last updated: 5/4/2017
+form to create job posting
+-->
+
+{% extends "base.html" %}
+{% block main_content %}
+<section class="fm">
+	<form id="create_job" method="POST" action="">
+  		<p><label>Job Title: <input required name="title"></label></p>
+  		<p><label>Description: <input name="description"></label></p>
+  		<p><label>Zip Code: <input required name="location" type="number"></label></p>
+  		<p><label>Date: <input required name="dt" type="date"></label></p>
+  		<p><label>Compensation: $<input name="pay" type="number"></label></p>
+  		<p> Note: hold down shift or command to select multiple skills </p>
+  		<p><label>Skills required for job: <select name="skills_required" multiple></label></p>
+      		<option value="" selected></option>
+      		<option value="yardwork">yardwork</option>
+      		<option value="carpentry">carpentry</option>
+      		<option value="tutoring">tutoring</option>
+      		<option value="childcare">childcare</option>
+      	</select>
+  		<p><input type="submit"></p>
+	</form>
+</section>
+{% endblock %}
