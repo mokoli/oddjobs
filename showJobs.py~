@@ -1,0 +1,37 @@
+#!/usr/local/bin/python2.7
+'''Author: Emily Van Laarhoven Marissa Okoli
+   CS 304 OddJobs Draft
+Helper module for flask application to retrieve listed jobs from database
+Contains functions for connecting to the database port:7332	
+'''
+
+import sys
+import MySQLdb
+import dbconn2
+from oddjobs_dsn import DSN
+
+def getConn():
+	'''Returns a connection to a database'''
+	DSN['db'] = 'oddjobs_db'     # the database we want to connect to
+	return dbconn2.connect(DSN)
+
+def getJobs(conn):
+	'''Returns a list of jobs'''
+	curs = conn.cursor(MySQLdb.cursors.DictCursor) # results as Dictionaries
+	curs.execute('select jid,title,dt,pay from job where available=1')
+	lines = []
+	while True:
+		row = curs.fetchone()
+		if row == None:
+			return lines
+		lines.append('{jid} {title} {dt} ${pay}'.format(**row))
+	
+
+def main():
+	'''Checks if actor is in database, if not inserts actor and returns success message,
+    else returns message saying actor is already in the database'''
+	conn = getConn()
+	return getJobs(conn)
+	
+if __name__ == '__main__':
+	print main()

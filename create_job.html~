@@ -1,0 +1,27 @@
+<!doctype html>
+
+<!-- Emily Van Laarhoven
+create_account.html
+Last updated: 4/19/2017
+form to create user account
+-->
+
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name=author content="Emily Van Laarhoven and Marissa Okoli">
+  <title> Create Account </title>
+</head>
+
+<body>
+<h1> Create Account </h1>
+<form id="create_account" action="">
+  <p><label>Name: <input required name="nm"></label></p>
+  <p><label>Street address: <input required name="street"></label></p>
+  <p><label>Town: <input required name="town"></label></p>
+  <p><label>State: <input required name="st"></label></p>
+  <p><label>Skills: <input name="skills"></label></p>
+  <p><input type="submit"></p>
+</form>
+</body>
+</html>

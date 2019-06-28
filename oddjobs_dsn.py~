@@ -1,0 +1,4 @@
+DSN = {'user':'oddjobs',
+       'passwd':'HireMe123!', ##find encrypted passwd
+       'host':'localhost'
+       }

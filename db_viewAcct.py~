@@ -1,0 +1,86 @@
+## Emily Van Laarhoven and Marissa Okoli
+## db_viewAcct.py
+## Last modified: 5/10/2017
+## Get account info to display on profile page
+
+import dbconn2
+import MySQLdb
+import os
+from oddjobs_dsn import DSN
+
+## global variables
+DATABASE = 'oddjobs_db'
+DEBUG = False
+
+def search_uid(cursor,uid):
+    '''return DICT of all account info from account table in db'''
+    q1 = "select nm, rating_avg, street, town, st, skills from account where uid=%s;"
+    cursor.execute(q1,[uid])
+    row = cursor.fetchone()
+    acct_info = {}
+    acct_info['uid'] = uid #eventually comment out after logins and modify form
+    acct_info['name'] = row['nm']
+    new_rate_avg = average_ratings(cursor,uid)
+    acct_info['rating'] = new_rate_avg
+    acct_info['street'] = row['street']
+    acct_info['town'] = row['town']
+    acct_info['state'] = row['st']
+    acct_info['skills'] = row['skills'] #multiple skills fixed
+    return acct_info
+
+def isActive(cursor,uid):
+    '''returns true if active=1 for this uid'''
+    q1 = "select active from account where uid=%s;"
+    cursor.execute(q1,[uid])
+    return int(cursor.fetchone()['active'])==1
+
+def average_ratings(cursor,uid):
+    '''returns the average rating for this uid from the rating table'''
+    #check to see if they've been rated yet (if not, return 5)
+    q0 = "select count(*) from rating where employee_id=%s or employer_id=%s;"
+    cursor.execute(q0,[uid,uid])
+    if int(cursor.fetchone()['count(*)'])==0:
+        return 5 #no reviews have been made for this person yet
+    else: #calculate average from rating table
+        # get employee ratings
+        q1 = "select sum(employee_rating) from rating where employee_id=%s;" 
+        cursor.execute(q1,[uid])
+        employee_total = cursor.fetchone()['sum(employee_rating)']
+        if employee_total is None:
+            employee_total=0
+        print "employee_total"
+        print employee_total
+        # get employer ratings
+        q2 = "select sum(employer_rating) from rating where employer_id=%s;" 
+        cursor.execute(q2,[uid])
+        employer_total = cursor.fetchone()['sum(employer_rating)']
+        if employer_total is None:
+            employer_total =0
+        print "employer_total"
+        print employer_total
+        # get employee # of reviews
+        q3 = "select count(employee_rating) from rating where employee_id=%s;" 
+        cursor.execute(q3,[uid])
+        employee_count = cursor.fetchone()['count(employee_rating)']
+        if employee_count is None:
+            employee_count =0
+        print "employee_count"
+        print employee_count
+        # get employer # of reviews
+        q4 = "select count(employer_rating) from rating where employer_id=%s;" 
+        cursor.execute(q4,[uid])
+        employer_count = cursor.fetchone()['count(employer_rating)']
+        if employer_count is None:
+            employer_count =0
+        print "employer_count"
+        print employer_count
+        #compute average rating
+        # don't have to check for division by 0 because we know at least one rating exists
+        avg_rating= ((employee_total+employer_total)/(employee_count+employer_count))
+        print "avg_rating"
+        print avg_rating
+        return avg_rating
+
+
+
+    
