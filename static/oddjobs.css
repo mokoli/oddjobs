@@ -1,0 +1,250 @@
+body {
+	margin: 0;
+}
+
+.logo a{
+	font-family: 'Limelight', cursive;
+	font-size: 36px;
+	float: left;
+	margin: 0;
+	color: #00B169;
+}
+
+.logo a::first-letter {
+	color: #20797d;
+}
+
+.logo a:hover {
+	color: #00B169;
+}
+
+header {
+	padding: 10px 4%;
+}
+
+.btn {
+	display: block;
+	border: 2px solid #20797d;
+	border-radius: 5px;
+	padding: 11px 2%;
+	margin-left: 2%;
+}
+
+header nav a, header .btn {
+	display: inline-block;
+	padding: 9px 2%;
+}
+
+header nav {
+	float: right;
+	width: 60%;
+    text-align: right;
+}
+
+div .btn {
+	width: 35%;
+    margin: 0 auto;
+    margin-top: 35px;
+    background-color: #20797d;
+}
+
+.btn span, header .btn:hover span {
+	color: white;
+}
+
+header .btn span {
+	color: #20797d;
+}
+
+.btn:hover {
+	border: 2px solid #00B169;
+	background-color: #00B169;
+}
+
+header::after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+p, ul, div, section, a {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Playfair Display', serif;
+	color: #003e5d;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #20797d;
+}
+
+a:hover {
+	color: #00B169;	
+}
+
+.hp, .banner {
+	background: url('bg.jpg') no-repeat center top;
+	background-size: cover;
+	padding: 50px 25%;
+	box-shadow: 1px 3px 5px #717171;
+}
+
+.banner {
+	padding: 15px 0;
+}
+
+.banner h2 {
+	color: white;
+	text-align: center;
+	font-size: 40px;
+	text-shadow: 1px 1px 10px #1f5440;
+}
+
+.intro {
+	background-color: white;
+	padding: 30px 10%;
+}
+
+.intro h2 {
+	text-align: center;
+	font-size: 32px;
+	color: #05665b;
+}
+
+.intro h2::after {
+	content: "";
+    display: block;
+    width: 50px;
+    margin: 25px auto;
+    border-bottom: 3px solid #003e5d;
+}
+
+.intro p {
+	text-align: center;
+	font-size: 20px;
+}
+
+.splain {
+	margin: 60px 0;
+	padding: 0 4%;
+}
+
+.flex-container {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+.flex-container div {
+	flex: 0 1 32%;
+	text-align: center;
+}
+
+.card {
+	border: 2px solid #003e5d;
+}
+
+.card h4 {
+	margin: 20px 0;
+}
+
+.card h4::after {
+	content: "";
+    display: block;
+    width: 80px;
+    margin: 15px auto;
+    border-bottom: 3px solid #00B169;
+}
+
+.card p {
+	padding: 0 10%;
+}
+
+.card .or {
+	color: #003e5d;
+	margin: 0;
+}
+
+.card .or::before {
+	content: "";
+    display: inline-block;
+    width: 15px;
+    margin-right: 5px;
+    border-bottom: 3px solid #00B169;
+    vertical-align: middle;
+}
+
+.card .or::after {
+	content: "";
+    display: inline-block;
+    width: 15px;
+    margin-left: 5px;
+    border-bottom: 3px solid #00B169;
+    vertical-align: middle;
+}
+
+.fm {
+	padding: 30px 4%;
+}
+
+.fm p.center {
+	text-align: center;
+}
+
+.fm form {
+	border: 2px solid #003e5d;
+	padding: 25px 5%;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#messages {
+	padding: 0 4%;
+    color: black;
+    font-weight: 600;
+}
+
+.jl {
+	list-style-type: none;
+	padding: 0 4%;
+}
+
+.jl a {
+	display: block;
+    border: 2px solid #003e5d;
+    padding: 10px 5%;
+    margin-bottom: 5px;
+    position: relative;
+    text-align: center;
+}
+
+.jl a:hover {
+	opacity: 0.7;
+}
+
+.jl a span {
+	color: #003e5d;;
+	font-weight: 600;
+}
+
+.jl a span.ri {
+	font-weight: 300;
+	position: absolute;
+	right: 10px;
+}
+
+.jl a span.le {
+	position: absolute;
+	left: 10px;
+	font-weight: 300;
+}
+
+img {
+	max-width: 100%;
+}
